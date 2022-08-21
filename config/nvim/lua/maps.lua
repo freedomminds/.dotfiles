@@ -71,4 +71,3 @@ vim.keymap.set('n', '<leader>/', '<Cmd>Commentary<CR>', opts)
 vim.keymap.set('n', '<leader>rn', '<Cmd> set relativenumber <CR>', opts)
 vim.keymap.set('n', '<leader>nr', '<Cmd> set norelativenumber <CR>', opts)
 
-

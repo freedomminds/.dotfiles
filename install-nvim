@@ -1,0 +1,22 @@
+ #!/bin/bash
+/* https://jdhao.github.io/2021/08/12/nvim_sumneko_lua_conf/ */
+
+sudo apt update
+
+mkdir -p $HOME/tools/ && cd $HOME/tools
+
+git clone --depth=1 https://hub.fastgit.xyz/sumneko/lua-language-server
+
+cd lua-language-server
+
+git submodule update --init --recursive
+
+cd 3rd/luamake
+
+compile/install.sh
+
+cd ../..
+
+./3rd/luamake/luamake rebuild
+
+

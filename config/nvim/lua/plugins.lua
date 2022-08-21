@@ -64,6 +64,12 @@ packer.startup(function(use)
         require('Comment').setup()
     end
   }
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
   use 'terrortylor/nvim-comment'
   use 'chrisbra/vim-commentary'
   use {

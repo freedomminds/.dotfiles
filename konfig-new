@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo "istall cofiguration dotfiles"
+
+sudo apt update
+
+sudo apt install make -y
+
+sudo apt install rcm -y
+
+sudo apt install tmux -y
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "install Neovim"
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim -y
+
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+
+echo "Install Packer Manger Plugins"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+
+echo "Install Typescript-langugae-server"
+sudo npm i -g typescript-language-server 
+
+
+echo "install Node js v16.x"
+
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+sudo npm install --global yarn
+
+# sudo apt install yarn -y
+
+echo "install tree-sitter"
+
+sudo npm install tree-sitter-cli
+
+echo "install prettierd"
+sudo npm install -g @fsouza/prettierd
+
+echo "install zsh"
+
+sudo apt install zsh -y
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+rcup -y
+lsrc
+
+
+
